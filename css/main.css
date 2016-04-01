@@ -5,7 +5,6 @@ html {
 body {
   margin: 2em auto;
   max-width: 35em;
-
   background-color: #fff;
   border: 1px solid #ccc;
 }
@@ -14,7 +13,6 @@ section {
   overflow: hidden;
   padding: 4em 1em;
   position: relative;
-
   border-bottom: 1px solid #ccc;
 }
 
@@ -32,9 +30,13 @@ div {
   height: 100px;
   top: calc(50% - 50px);
   width: 200px;
-
+  transition: 1s ease;
   background-color: limegreen;
   opacity: 0;
+}
+
+.show {
+  opacity: 1;
 }
 
 .diamond {
@@ -42,9 +44,24 @@ div {
   right: -100px;
   top: calc(50% - 40px);
   width: 80px;
-
+  transition: all 1s ease;
   background-color: hotpink;
   transform: rotate(45deg);
+}
+
+.slide {
+  right: 100px;
+}
+
+@keyframes slide {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-150px, 0);
+  }
 }
 
 .panel {
@@ -52,10 +69,9 @@ div {
   overflow: hidden;
   top: 50%;
   width: 250px;
-
+  transition: all 1s ease;
   background-color: yellow;
   transform: translateY(-50%);
-
   color: darkgoldenrod;
   text-align: center;
 }
@@ -65,13 +81,51 @@ div {
   padding: 3rem 0;
 }
 
+.collapse {
+  max-height: 0;
+}
+
+@keyframes collapse {
+
+  0% {
+    max-height: 100%;
+  }
+
+  100% {
+    max-height: 0%;
+  }
+}
+
 .circle {
   height: 100px;
   top: calc(50% - 50px);
   width: 100px;
-
+  animation: all 2s ease;
   background-color: orange;
   border-radius: 50%;
+}
+
+.bounce {
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-50px, 23px);
+  }
+
+  75% {
+    transform: translate(-85px, 20px);
+  }
+
+  100% {
+    transform: translate(-97px, -18px);
+  }
 }
 
 .list {
@@ -82,7 +136,6 @@ div {
   right: 1em;
   top: 1em;
   width: 250px;
-
   border: 1px solid #ccc;
   overflow: hidden;
   overflow-y: auto;
@@ -92,10 +145,20 @@ div {
   overflow: hidden;
   padding: 0 0.5em;
   max-height: 0;
-
   background-color: plum;
   border: 1px solid mediumpurple;
   overflow: hidden;
-
+  animation: expand .5s ease forwards;
   color: mediumpurple;
+}
+
+@keyframes expand {
+
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 1.5rem;
+  }
 }
